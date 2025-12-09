@@ -13,8 +13,10 @@ try:                        # importing nexrad interface; make sure loader scrip
 except ImportError as err:
     NEXRAD_AVAILABLE = False
     warnings.warn("NexradAwsInterface could not be imported. Please check NexradAWS installation.")
+    
 
-class NEXRADLoader:
+
+class NEXRADLoader:                 # actual loader class for NEXRAD data
     def __init__(self, cache_dir: Optional[Path] = 'data/cache/', data_dir: Optional[Path] = 'data/raw/'):
         if not NEXRAD_AVAILABLE:
             raise ImportError("NexradAwsInterface is not available. Please check NexradAWS installation.")
